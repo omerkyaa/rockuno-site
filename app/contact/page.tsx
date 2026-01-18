@@ -1,6 +1,4 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import Contact from "@/components/Contact";
+import ContactClient from "./ContactClient";
 
 export const metadata = {
   title: "Contact Us | Rockuno",
@@ -8,11 +6,5 @@ export const metadata = {
 };
 
 export default function ContactPage() {
-  return (
-    <main className="min-h-screen bg-rockuno-gradient">
-      <Navbar />
-      <Contact />
-      <Footer />
-    </main>
-  );
+  return <ContactClient />;
 }
