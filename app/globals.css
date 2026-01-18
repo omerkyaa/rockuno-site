@@ -12,15 +12,158 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+.dark {
+  --background: #0B0F1A;
+  --foreground: #F5F5F5;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html, body {
+  height: 100%;
+}
+
+::selection {
+  background: rgba(123, 47, 255, 0.25);
+}
+
+/* Primary Gradient - Logo Colors */
+.gradient-primary {
+  background: linear-gradient(90deg, #2D4BFF 0%, #7B2FFF 25%, #C026D3 50%, #FF7A1A 75%, #FFB000 100%);
+}
+
+.gradient-primary-text {
+  background: linear-gradient(90deg, #2D4BFF 0%, #7B2FFF 25%, #C026D3 50%, #FF7A1A 75%, #FFB000 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-ring {
+  background: conic-gradient(from 180deg, #2D4BFF, #7B2FFF, #C026D3, #FF7A1A, #FFB000, #2D4BFF);
+}
+
+.gradient-radial {
+  background: radial-gradient(circle, rgba(45,75,255,0.2) 0%, rgba(123,47,255,0.2) 25%, rgba(192,38,211,0.2) 50%, rgba(255,122,26,0.2) 75%, rgba(255,176,0,0.2) 100%);
+}
+
+.bg-rockuno-gradient {
+  background: radial-gradient(1200px 700px at 15% 10%, rgba(45, 75, 255, 0.18), transparent 60%),
+              radial-gradient(900px 600px at 85% 25%, rgba(123, 47, 255, 0.18), transparent 55%),
+              radial-gradient(900px 700px at 70% 85%, rgba(255, 122, 26, 0.14), transparent 60%),
+              linear-gradient(180deg, #ffffff, #ffffff);
+  transition: background 0.3s ease;
+}
+
+.dark .bg-rockuno-gradient {
+  background: radial-gradient(1200px 700px at 15% 10%, rgba(45, 75, 255, 0.25), transparent 60%),
+              radial-gradient(900px 600px at 85% 25%, rgba(123, 47, 255, 0.22), transparent 55%),
+              radial-gradient(900px 700px at 70% 85%, rgba(255, 122, 26, 0.18), transparent 60%),
+              linear-gradient(180deg, #0B0F1A, #0B0F1A);
+}
+
+.rockuno-border {
+  border: 1px solid rgba(11, 15, 26, 0.08);
+  transition: border-color 0.3s ease;
+}
+
+.dark .rockuno-border {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.glass {
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(14px);
+  transition: background 0.3s ease;
+}
+
+.dark .glass {
+  background: rgba(11, 15, 26, 0.7);
+  backdrop-filter: blur(14px);
+}
+
+/* Gradient Star Fill */
+.star-gradient {
+  fill: url(#star-gradient);
+}
+
+.star-gradient path {
+  fill: url(#star-gradient);
+}
+
+/* SVG Gradient Definition - Add to component or global */
+svg.star-gradient-defs {
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+/* Infinite Scroll Animation - Professional & Buttery Smooth */
+@keyframes scroll-smooth {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-scroll-smooth {
+  animation: scroll-smooth 40s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.animate-scroll-smooth:hover {
+  animation-play-state: paused;
+}
+
+/* Fade edges for professional look */
+.mask-gradient {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+
+/* Legacy scroll animations */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-100% / 4));
+  }
+}
+
+.animate-scroll {
+  animation: scroll 30s linear infinite;
+}
+
+.animate-scroll:hover {
+  animation-play-state: paused;
+}
+
+.animate-scroll-fast {
+  animation: scroll 20s linear infinite;
+  will-change: transform;
+}
+
+.animate-scroll-fast:hover {
+  animation-play-state: paused;
 }
